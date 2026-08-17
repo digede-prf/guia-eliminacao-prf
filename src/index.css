@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-prf-900: #0F2233;
+  --color-prf-800: #1B3A5C;
+  --color-prf-700: #2C5F8A;
+  --color-prf-600: #3A7AB8;
+  --color-prf-100: #EBF2FA;
+  --color-prf-50: #F0F4F8;
+  --color-ok: #38A169;
+  --color-ok-light: #F0FFF4;
+  --color-ok-border: #C6F6D5;
+  --color-warn: #F59E0B;
+  --color-warn-light: #FFFBEB;
+  --color-warn-border: #FDE68A;
+  --color-danger: #E53E3E;
+  --color-danger-light: #FFF5F5;
+  --color-danger-border: #FEB2B2;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-prf-50);
+    color: #1a2332;
+    line-height: 1.6;
+  }
+  /* Prevent iOS zoom on inputs */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  /* Focus visible for keyboard navigation */
+  *:focus-visible {
+    outline: 3px solid var(--color-prf-700);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  /* Font size scaling via CSS custom property */
+  :root {
+    --font-scale: 1;
+  }
+  body {
+    font-size: calc(18px * var(--font-scale));
+  }
+}
+
+/* High contrast mode */
+@layer utilities {
+  .high-contrast {
+    --color-prf-800: #000000;
+    --color-prf-700: #003366;
+    --color-prf-100: #e6f0ff;
+    --color-prf-50: #ffffff;
+    filter: contrast(1.15);
+  }
+  .high-contrast * {
+    border-color: currentColor !important;
+  }
+}
+
+/* Smooth open animation for accessibility panel */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-in {
+  animation: slideIn 0.15s ease-out;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles — for Sorteio result export */
+@media print {
+  body {
+    background: white !important;
+    font-size: 12pt !important;
+  }
+  .no-print,
+  header[role="banner"],
+  .fixed {
+    display: none !important;
+  }
+  .print-block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 12pt;
+  }
+  .print-header {
+    border-bottom: 2pt solid #1B3A5C;
+    padding-bottom: 8pt;
+    margin-bottom: 12pt;
+  }
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}
