@@ -5,6 +5,7 @@ const MENU_ITEMS = [
   { id: "decide", icon: "✅", label: "Posso Eliminar Este Documento?", desc: "Responda algumas perguntas e descubra" },
   { id: "calc", icon: "🔢", label: "Calculadora de Amostragem", desc: "Quantas caixas/pastas verificar na análise técnica" },
   { id: "sorteio", icon: "🎲", label: "Sorteio de Amostra", desc: "Sorteio aleatório das caixas/pastas para verificação da CNPAD" },
+  { id: "classificacao", icon: "🔎", label: "Assistente de Classificação", desc: "Busque o código correto pelo tipo de documento" },
   { id: "steps", icon: "📋", label: "Passo a Passo da Eliminação", desc: "As 21 etapas do procedimento completo" },
   { id: "checklist", icon: "☑️", label: "Checklist da LED", desc: "Confira tudo antes de enviar à CNPAD" },
   { id: "prazos", icon: "⏰", label: "Tabela de Prazos", desc: "Todos os prazos da IN num lugar só" },
