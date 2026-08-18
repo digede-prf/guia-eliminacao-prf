@@ -13,6 +13,7 @@ import Deadlines from "./components/Deadlines";
 import Glossary from "./components/Glossary";
 import Admin from "./components/Admin";
 import Sorteio from "./components/Sorteio";
+import Classificacao from "./components/Classificacao";
 import FontControls from "./components/FontControls";
 
 const SECTION_LABELS = {
@@ -24,6 +25,7 @@ const SECTION_LABELS = {
   prazos: "Prazos",
   glossario: "Glossário",
   sorteio: "Sorteio de Amostra",
+  classificacao: "Assistente de Classificação",
   admin: "Painel de Uso",
 };
 
@@ -108,6 +110,7 @@ export default function App() {
       {screen === "prazos" && <Deadlines onBack={goHome} />}
       {screen === "glossario" && <Glossary onBack={goHome} />}
       {screen === "sorteio" && <Sorteio onBack={goHome} />}
+      {screen === "classificacao" && <Classificacao onBack={goHome} />}
       {screen === "admin" && <Admin onBack={goHome} />}
 
       <FontControls
